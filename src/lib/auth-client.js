@@ -1,11 +1,7 @@
-import { createAuthClient } from "better-auth/react";
-
+import { createAuthClient } from "better-auth/react"
 export const authClient = createAuthClient({
-  baseURL: process.env.BETTER_AUTH_URL,
+    /** The base URL of the server (optional if you're using the same domain) */
+    baseURL: process.env.BETTER_AUTH_URL
+})
 
-  onError: (error) => {
-    console.error("Auth error:", error);
-  },
-});
-
-export const { signIn, signUp, useSession, signOut, getSession } = authClient;
+export const { signIn, signUp, signOut, useSession } = createAuthClient()
